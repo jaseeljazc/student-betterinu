@@ -14,36 +14,45 @@ export type AssignmentSubmission = {
 }
 
 export type CourseAssignment = {
-  id: string
+  submission_id: string | null
+  assignment_id: string
+  course_id: string
+  week_id: string
+  day_id: string
+  submitted_text: string | null
+  submitted_files: { url: string; name: string; type: string }[] | null
+  submitted_at: string | null
+  submission_status: SubmissionStatus | null
+  feedback: string | null
+  reviewed_at: string | null
+  marks_obtained: number | null
+  course_title: string
   title: string
-  instructions: string
-  courseId: string
-  courseTitle: string
-  weekId: string
-  dayId: string
-  dueDate?: string
-  totalMarks?: number
-  allowedSubmissionTypes: string[]
-  submission?: AssignmentSubmission | null
+  due_date: string | null
+  module_id: string
+  scope: "course"
 }
 
 export type StandaloneAssignment = {
-  assignmentId: string
+  assignment_id: string
   title: string
   instructions: string
-  dueDate: string | null
-  totalMarks: number | null
-  allowedSubmissionTypes: string[]
-  attachedFiles: { url: string; name: string; type: string }[]
-  referenceLinks: { label: string; url: string }[]
+  due_date: string | null
+  total_marks: number | null
+  allowed_submission_types: string[]
+  attached_files: { url: string; name: string; type: string }[]
+  reference_links: { label: string; url: string }[]
   scope: "course" | "common"
-  courseTitle: string | null
-  submissionId: string | null
-  submittedText: string | null
-  submittedFiles: { url: string; name: string; type: string }[] | null
-  submittedAt: string | null
-  submissionStatus: SubmissionStatus | null
+  course_title: string | null
+  course_id: string | null
+  submission_id: string | null
+  submitted_text: string | null
+  submitted_files: { url: string; name: string; type: string }[] | null
+  submitted_at: string | null
+  submission_status: SubmissionStatus | null
   feedback: string | null
+  marks_obtained: number | null
+  created_at?: string
 }
 
 export type Assignment = CourseAssignment | StandaloneAssignment
