@@ -21,7 +21,7 @@ export function AuthLayout({ children }: AuthLayoutProps) {
         <div className="relative hidden p-6 md:block lg:p-5">
           <div className="from-primary/90 via-accent/80 to-secondary/60 relative h-full w-full overflow-hidden rounded-md bg-gradient-to-br">
             <Image
-              src="/betty-img.png"
+              src="/betty-img-main.png"
               alt="Betterinu Login Branding"
               fill
               className="object-cover"
