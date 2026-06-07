@@ -1,0 +1,604 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.9605 0.0046 258.3248);
+  --foreground: oklch(0.2153 0.0187 235.1251);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2153 0.0187 235.1251);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2153 0.0187 235.1251);
+  --primary: oklch(0.4335 0.0754 182.2315);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.9644 0.0208 166.1014);
+  --secondary-foreground: oklch(0.4335 0.0754 182.2315);
+  --muted: oklch(0.9605 0.0046 258.3248);
+  --muted-foreground: oklch(0.5589 0.0255 233.7233);
+  --accent: oklch(0.761 0.2015 149.7403);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6257 0.2058 29.0773);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.9436 0.0051 228.8204);
+  --border-strong: oklch(0.80 0.01 228.8204);
+  --input: oklch(0.9436 0.0051 228.8204);
+  --ring: oklch(0.761 0.2015 149.7403);
+  --progress-status: oklch(0.92 0.04 240.0);
+  --progress-status-foreground: oklch(0.4 0.16 240.0);
+  --chart-1: oklch(0.761 0.2015 149.7403);
+  --chart-2: oklch(0.4335 0.0754 182.2315);
+  --chart-3: oklch(0.5762 0.0995 182.3964);
+  --chart-4: oklch(0.7356 0.137 232.8053);
+  --chart-5: oklch(0.6509 0.1283 170.4258);
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.2153 0.0187 235.1251);
+  --sidebar-primary: oklch(0.4335 0.0754 182.2315);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.9644 0.0208 166.1014);
+  --sidebar-accent-foreground: oklch(0.4335 0.0754 182.2315);
+  --sidebar-border: oklch(0.9436 0.0051 228.8204);
+  --sidebar-ring: oklch(0.761 0.2015 149.7403);
+  /* Status semantic tokens */
+  --status-todo: oklch(0.91 0.04 225);
+  --status-todo-foreground: oklch(0.32 0.10 225);
+  --status-pending: oklch(0.93 0.07 88);
+  --status-pending-foreground: oklch(0.42 0.13 78);
+  --status-approved: oklch(0.92 0.07 148);
+  --status-approved-foreground: oklch(0.33 0.12 148);
+  --status-rejected: oklch(0.93 0.06 22);
+  --status-rejected-foreground: oklch(0.42 0.18 22);
+  /* Attendance status tokens */
+  --att-present: oklch(85.978% 0.19956 145.159);
+  --att-present-fg: oklch(0.22 0.18 138);
+  --att-present-border: oklch(0.65 0.18 138);
+
+  --att-late: oklch(0.86 0.18 88);
+  --att-late-fg: oklch(0.28 0.18 75);
+  --att-late-border: oklch(0.65 0.17 80);
+
+  --att-early-checkout: oklch(0.86 0.17 52);
+  --att-early-checkout-fg: oklch(0.28 0.19 44);
+  --att-early-checkout-border: oklch(0.65 0.17 48);
+
+  --att-half-day: oklch(0.84 0.14 228);
+  --att-half-day-fg: oklch(0.24 0.18 228);
+  --att-half-day-border: oklch(0.62 0.15 228);
+
+  --att-absent: oklch(0.86 0.17 22);
+  --att-absent-fg: oklch(0.26 0.22 22);
+  --att-absent-border: oklch(0.62 0.20 22);
+
+  --att-leave: oklch(0.84 0.14 272);
+  --att-leave-fg: oklch(0.24 0.17 272);
+  --att-leave-border: oklch(0.62 0.14 272);
+
+  --att-holiday: oklch(0.84 0.14 300);
+  --att-holiday-fg: oklch(0.24 0.16 300);
+  --att-holiday-border: oklch(0.62 0.13 300);
+
+  --att-pending-leave: oklch(0.84 0.13 208);
+  --att-pending-leave-fg: oklch(0.24 0.15 208);
+  --att-pending-leave-border: oklch(0.62 0.12 208);
+
+  --att-future: oklch(0.92 0.015 240);
+  --att-future-fg: oklch(0.50 0.03 240);
+  --att-future-border: oklch(0.72 0.03 240);
+  --font-sans:
+    Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,
+    Cantarell, Fira Sans, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono:
+    SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
+    monospace;
+  --radius: 0.7rem;
+  --shadow-x: 0px;
+  --shadow-y: 2px;
+  --shadow-blur: 10px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.1;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --shadow-2xs: 0px 2px 10px 0px hsl(0 0% 0% / 0.05);
+  --shadow-xs: 0px 2px 10px 0px hsl(0 0% 0% / 0.05);
+  --shadow-sm:
+    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow:
+    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 1px 2px -1px hsl(0 0% 0% / 0.1);
+  --shadow-md:
+    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 2px 4px -1px hsl(0 0% 0% / 0.1);
+  --shadow-lg:
+    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 4px 6px -1px hsl(0 0% 0% / 0.1);
+  --shadow-xl:
+    0px 2px 10px 0px hsl(0 0% 0% / 0.1), 0px 8px 10px -1px hsl(0 0% 0% / 0.1);
+  --shadow-2xl: 0px 2px 10px 0px hsl(0 0% 0% / 0.25);
+  --tracking-normal: 0em;
+  --spacing: 0.25rem;
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(62.794% 0.14633 157.337);
+  /* green-700 restored */
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.761 0.2015 149.7403);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 10%);
+  --border-strong: oklch(1 0 0 / 20%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(62.794% 0.14633 157.337);
+  /* match primary */
+  --progress-status: oklch(0.25 0.06 240.0);
+  --progress-status-foreground: oklch(0.85 0.05 240.0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(62.794% 0.14633 157.337);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(62.794% 0.14633 157.337);
+  /* Status semantic tokens — dark */
+  --status-todo: oklch(0.24 0.05 225);
+  --status-todo-foreground: oklch(0.82 0.08 225);
+  --status-pending: oklch(0.24 0.06 88);
+  --status-pending-foreground: oklch(0.88 0.09 88);
+  --status-approved: oklch(0.22 0.07 148);
+  --status-approved-foreground: oklch(0.82 0.10 148);
+  --status-rejected: oklch(0.22 0.06 22);
+  --status-rejected-foreground: oklch(0.82 0.12 22);
+  /* Attendance status tokens — dark */
+  --att-present: oklch(0.55 0.18 138);
+  --att-present-fg: oklch(0.95 0.15 138);
+  --att-present-border: oklch(0.70 0.16 138);
+  --att-late: oklch(0.55 0.16 88);
+  --att-late-fg: oklch(0.95 0.15 88);
+  --att-late-border: oklch(0.70 0.14 88);
+  --att-early-checkout: oklch(0.55 0.16 54);
+  --att-early-checkout-fg: oklch(0.95 0.15 54);
+  --att-early-checkout-border: oklch(0.70 0.15 54);
+  --att-half-day: oklch(0.52 0.16 228);
+  --att-half-day-fg: oklch(0.95 0.12 228);
+  --att-half-day-border: oklch(0.65 0.13 228);
+  --att-absent: oklch(0.55 0.18 22);
+  --att-absent-fg: oklch(0.95 0.15 22);
+  --att-absent-border: oklch(0.70 0.16 22);
+  --att-leave: oklch(0.52 0.16 272);
+  --att-leave-fg: oklch(0.95 0.12 272);
+  --att-leave-border: oklch(0.65 0.12 272);
+  --att-holiday: oklch(0.52 0.16 300);
+  --att-holiday-fg: oklch(0.95 0.12 300);
+  --att-holiday-border: oklch(0.65 0.12 300);
+  --att-pending-leave: oklch(0.52 0.15 208);
+  --att-pending-leave-fg: oklch(0.95 0.12 208);
+  --att-pending-leave-border: oklch(0.65 0.11 208);
+  --att-future: oklch(0.35 0.02 240);
+  --att-future-fg: oklch(0.65 0.02 240);
+  --att-future-border: oklch(0.50 0.02 240);
+  /* Custom dark token overrides */
+  --bg-base: oklch(0.145 0 0);
+  --bg-surface: oklch(0.205 0 0);
+  --bg-elevated: oklch(0.245 0 0);
+  --bg-subtle: oklch(0.195 0 0);
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+  --border-muted: oklch(1 0 0 / 8%);
+  --border-default: oklch(1 0 0 / 10%);
+  --border-strong: oklch(1 0 0 / 20%);
+  --border-focus: oklch(62.794% 0.14633 157.337);
+  --text-primary: oklch(0.985 0 0);
+  --text-secondary: oklch(0.82 0 0);
+  --text-muted: oklch(0.708 0 0);
+  --text-disabled: oklch(0.55 0 0);
+  --text-on-dark: oklch(0.985 0 0);
+  --font-sans:
+    Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu,
+    Cantarell, Fira Sans, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono:
+    SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
+    monospace;
+  --radius: 1rem;
+  --shadow-x: 0px;
+  --shadow-y: 4px;
+  --shadow-blur: 12px;
+  --shadow-spread: 0px;
+  --shadow-opacity: 0.4;
+  --shadow-color: rgba(0, 0, 0, 0.4);
+  --shadow-2xs: 0px 4px 12px 0px hsl(0 0% 0% / 0.2);
+  --shadow-xs: 0px 4px 12px 0px hsl(0 0% 0% / 0.2);
+  --shadow-sm:
+    0px 4px 12px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow:
+    0px 4px 12px 0px hsl(0 0% 0% / 0.4), 0px 1px 2px -1px hsl(0 0% 0% / 0.4);
+  --shadow-md:
+    0px 4px 12px 0px hsl(0 0% 0% / 0.4), 0px 2px 4px -1px hsl(0 0% 0% / 0.4);
+  --shadow-lg:
+    0px 4px 12px 0px hsl(0 0% 0% / 0.4), 0px 4px 6px -1px hsl(0 0% 0% / 0.4);
+  --shadow-xl:
+    0px 4px 12px 0px hsl(0 0% 0% / 0.4), 0px 8px 10px -1px hsl(0 0% 0% / 0.4);
+  --shadow-2xl: 0px 4px 12px 0px hsl(0 0% 0% / 1);
+}
+
+/* === COLOR-MIX UTILITY PATCHES (dark mode opacity helpers) === */
+.dark .bg-primary\/5 {
+  background-color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 5%, transparent);
+}
+
+.dark .bg-primary\/10 {
+  background-color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 10%, transparent);
+}
+
+.dark .bg-primary\/20 {
+  background-color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 20%, transparent);
+}
+
+.dark .bg-primary\/8 {
+  background-color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 8%, transparent);
+}
+
+.dark .text-primary\/70 {
+  color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 70%, transparent);
+}
+
+.dark .text-primary\/50 {
+  color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 50%, transparent);
+}
+
+.dark .border-primary\/30 {
+  border-color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 30%, transparent);
+}
+
+.dark .ring-primary\/20 {
+  --tw-ring-color: color-mix(in oklch, oklch(62.794% 0.14633 157.337) 20%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-progress-status: var(--progress-status);
+  --color-progress-status-foreground: var(--progress-status-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Status token utilities */
+  --color-status-todo: var(--status-todo);
+  --color-status-todo-foreground: var(--status-todo-foreground);
+  --color-status-pending: var(--status-pending);
+  --color-status-pending-foreground: var(--status-pending-foreground);
+  --color-status-approved: var(--status-approved);
+  --color-status-approved-foreground: var(--status-approved-foreground);
+  --color-status-rejected: var(--status-rejected);
+  --color-status-rejected-foreground: var(--status-rejected-foreground);
+  /* Attendance status token utilities */
+  --color-att-present: var(--att-present);
+  --color-att-present-fg: var(--att-present-fg);
+  --color-att-late: var(--att-late);
+  --color-att-late-fg: var(--att-late-fg);
+  --color-att-early-checkout: var(--att-early-checkout);
+  --color-att-early-checkout-fg: var(--att-early-checkout-fg);
+  --color-att-half-day: var(--att-half-day);
+  --color-att-half-day-fg: var(--att-half-day-fg);
+  --color-att-absent: var(--att-absent);
+  --color-att-absent-fg: var(--att-absent-fg);
+  --color-att-leave: var(--att-leave);
+  --color-att-leave-fg: var(--att-leave-fg);
+  --color-att-holiday: var(--att-holiday);
+  --color-att-holiday-fg: var(--att-holiday-fg);
+  --color-att-pending-leave: var(--att-pending-leave);
+  --color-att-pending-leave-fg: var(--att-pending-leave-fg);
+  --color-att-future: var(--att-future);
+  --color-att-future-fg: var(--att-future-fg);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+  --font-display: var(--font-display);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+}
+
+/* Glassmorphism utility for attendance calendar cells */
+.att-glass {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+  }
+}
+
+/* Custom Minimal Scrollbar Utility */
+.scrollbar-minimal {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.08) transparent;
+}
+
+.scrollbar-minimal::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+}
+
+.scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dark .scrollbar-minimal {
+  scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
+}
+
+.dark .scrollbar-minimal::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .scrollbar-minimal::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+
+.att-glass {
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  box-shadow: inset 0 1px 0px 0px rgba(255, 255, 255, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+@layer components {
+  /* ── Rich Content Styling ── */
+  /* Full fidelity rendering of Quill/TipTap rich HTML in the student lesson viewer */
+  .rich-content { font-family: var(--font-sans); line-height: 1.7; word-break: break-word; overflow-wrap: break-word; }
+
+  /* Headings use the display font (Sora) */
+  .rich-content h1,
+  .rich-content h2,
+  .rich-content h3,
+  .rich-content h4,
+  .rich-content h5,
+  .rich-content h6 { font-family: var(--font-display); font-weight: 400; color: var(--foreground); line-height: 1.25; margin-top: 0.75em; margin-bottom: 0.5em; }
+  .rich-content h1 { font-size: 2rem; }
+  .rich-content h2 { font-size: 1.5rem; }
+  .rich-content h3 { font-size: 1.25rem; }
+  .rich-content h4 { font-size: 1.1rem; }
+
+  /* Paragraphs */
+  .rich-content p { margin-top: 0; margin-bottom: 0.85em; line-height: 1.7; }
+  .rich-content p:last-child { margin-bottom: 0; }
+  .rich-content p.ql-blank { min-height: 1.7em; }
+
+  /* Lists — force disc/decimal back since Tailwind preflight removes them */
+  .rich-content ul { list-style-type: disc !important; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem; }
+  .rich-content ol { list-style-type: decimal !important; padding-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.75rem; }
+  .rich-content li { margin-bottom: 0.35rem; line-height: 1.65; }
+  .rich-content li > ul,
+  .rich-content li > ol { margin-top: 0.25rem; margin-bottom: 0; }
+
+  /* Inline formatting */
+  .rich-content strong, .rich-content b { font-weight: 700; }
+  .rich-content em, .rich-content i { font-style: italic; }
+  .rich-content u { text-decoration: underline; text-underline-offset: 3px; }
+  .rich-content s { text-decoration: line-through; }
+  .rich-content a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; font-weight: 600; }
+
+  /* Quill size helpers */
+  .rich-content .ql-size-small  { font-size: 0.75em; }
+  .rich-content .ql-size-large  { font-size: 1.5em; }
+  .rich-content .ql-size-huge   { font-size: 2.5em; }
+
+  /* Quill alignment */
+  .rich-content .ql-align-center  { text-align: center !important; }
+  .rich-content .ql-align-right   { text-align: right !important; }
+  .rich-content .ql-align-justify { text-align: justify !important; }
+
+  /* Code */
+  .rich-content pre { background: var(--muted); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.875rem; overflow-x: auto; margin: 0.75rem 0; }
+  .rich-content code { background: var(--muted); border-radius: 4px; padding: 0.1em 0.4em; font-family: var(--font-mono); font-size: 0.875em; }
+  .rich-content pre code { background: none; padding: 0; font-size: inherit; }
+
+  /* Tables */
+  .rich-content table { border-collapse: collapse; width: 100%; margin: 1rem 0; font-size: 0.9rem; }
+  .rich-content th { border: 1px solid var(--border); padding: 0.6rem 0.85rem; text-align: left; font-weight: 700; color: var(--foreground); background: var(--muted); }
+  .rich-content td { border: 1px solid var(--border); padding: 0.6rem 0.85rem; color: var(--foreground); white-space: normal; word-break: break-word; }
+  .rich-content tr:nth-child(even) td { background: color-mix(in oklch, var(--muted) 50%, transparent); }
+
+  /* Misc */
+  .rich-content hr { border: none; border-top: 1px solid var(--border); margin: 1.5rem 0; }
+  .rich-content blockquote { border-left: 3px solid var(--primary); padding-left: 1rem; margin: 1rem 0; color: var(--muted-foreground); font-style: italic; }
+  .rich-content img { max-width: 100%; border-radius: var(--radius-md); }
+}
+
+@layer components {
+  .rich-content > *:first-child { margin-top: 0; }
+  .rich-content > *:last-child { margin-bottom: 0; }
+}
+
+/* ── Assignment Viewer token classes ── */
+@layer components {
+  /* Main card shell — adapts to light/dark via --card token */
+  .assignment-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    border-radius: var(--radius-md);
+  }
+
+  /* Instructions body text — ensures legible foreground regardless of mode */
+  .assignment-instructions {
+    color: var(--foreground);
+    font-size: 0.875rem;
+    line-height: 1.7;
+  }
+
+  /* Submission-type pill */
+  .assignment-type-pill {
+    background: var(--muted);
+    border: 1px solid var(--border);
+    color: var(--muted-foreground);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    border-radius: 9999px;
+    padding: 0.25rem 0.625rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Status banners using semantic status tokens */
+  .assignment-status-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid;
+    padding: 1rem;
+  }
+  .assignment-status-pending {
+    background: var(--status-pending);
+    border-color: color-mix(in oklch, var(--status-pending-foreground) 30%, transparent);
+    color: var(--status-pending-foreground);
+  }
+  .assignment-status-approved {
+    background: var(--status-approved);
+    border-color: color-mix(in oklch, var(--status-approved-foreground) 30%, transparent);
+    color: var(--status-approved-foreground);
+  }
+  .assignment-status-rejected {
+    background: var(--status-rejected);
+    border-color: color-mix(in oklch, var(--status-rejected-foreground) 30%, transparent);
+    color: var(--status-rejected-foreground);
+  }
+
+  /* Approved success block */
+  .assignment-approved-block {
+    background: var(--status-approved);
+    border: 1px solid color-mix(in oklch, var(--status-approved-foreground) 25%, transparent);
+    color: var(--status-approved-foreground);
+    border-radius: var(--radius-md);
+  }
+
+  /* Submission form card */
+  .assignment-form-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    border-radius: var(--radius-md);
+  }
+
+  /* Textarea / input inside assignment form */
+  .assignment-textarea {
+    background: var(--background);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.7;
+    width: 100%;
+    outline: none;
+    resize: vertical;
+  }
+  .assignment-textarea::placeholder { color: var(--muted-foreground); }
+  .assignment-textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px color-mix(in oklch, var(--primary) 20%, transparent);
+  }
+  .assignment-textarea:disabled { opacity: 0.6; cursor: not-allowed; }
+
+  /* Reference link pill */
+  .assignment-ref-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--primary);
+    border-radius: 9999px;
+    padding: 0.375rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    text-decoration: none;
+  }
+  .assignment-ref-link:hover {
+    border-color: var(--primary);
+    box-shadow: 0 1px 4px 0 color-mix(in oklch, var(--primary) 15%, transparent);
+  }
+}
+
